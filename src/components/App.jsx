@@ -3,19 +3,14 @@ import ToDoItem from "./ToDoItem";
 import InputArea from "./InputArea";
 
 function App() {
-  const [inputText, setInputText] = useState("");
+  
   const [items, setItems] = useState([]);
 
-  function handleChange(event) {
-    const newValue = event.target.value;
-    setInputText(newValue);
-  }
-
-  function addItem() {
+  function addItem(inputText) {
     setItems(prevItems => {
       return [...prevItems, inputText];
     });
-    setInputText("");
+    
   }
 
   // this function tigger when list item clicked 
@@ -35,9 +30,7 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <InputArea
-        onChangeListener = {handleChange}
-        value = {inputText}
-        onClickListener ={addItem}
+        onAdd={addItem}
       />
       <div>
         <ul>
