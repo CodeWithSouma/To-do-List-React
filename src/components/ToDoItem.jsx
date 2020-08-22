@@ -1,5 +1,7 @@
 import React from "react";
-// {textDecoration:"line-through solid #fdcb6e"}
+
+
+
 function ToDoItem(props) {
 
  return (
