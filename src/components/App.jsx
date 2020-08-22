@@ -17,6 +17,18 @@ function App() {
     setInputText("");
   }
 
+  // this function tigger when list item clicked 
+  function deleteItem(id) {
+    console.log("delete item is called.");
+    setItems((prevItems) => {
+      // tis code construct a new array that array not content selected item
+      return prevItems.filter(function(item,index){
+        return index!==id;
+      });
+      
+    });
+  }
+
   return (
     <div className="container">
       <div className="heading">
@@ -30,8 +42,13 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map(todoItem => (
-            <ToDoItem text={todoItem}/>
+          {items.map((todoItem,index) => (
+            <ToDoItem 
+            key = {index}
+            id = {index}
+            text={todoItem}
+            onChecked={deleteItem}
+            />
           ))}
         </ul>
       </div>
